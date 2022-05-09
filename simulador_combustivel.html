@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Combustível</title>
+
+    <style>
+        body {
+            background-color: cadetblue;
+        }
+
+        div {
+            background-color: beige;
+            width:fit-content;
+            height: fit-content;
+            margin: auto;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+            text-align: justify;
+            border-radius: 10px;
+        }
+
+       .esquerda {
+            text-align: left;
+            margin: 10px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>Média de consumo: .... <input type="number" min="0" id="media" value="35"> km/litro</p>
+        <p>Distância: .................... <input type="number" min="0" id="distancia"> km</p>
+        <p>Preço litro de gasolina: <input type="number" min="0" id="preco"> reais</p>
+        <button onclick="calcular()">Calcular</button>
+
+        <p class="esquerda">Serão gastos <span id="litros">...</span> litros</p>
+        <p class="esquerda">Serão gastos <span id="reais">...</span> reais</p>
+    </div>  
+    
+
+    <script>        
+        function calcular(){
+            let distancia = document.getElementById("distancia").value;
+            let media = document.getElementById("media").value;
+            let preco = document.getElementById("preco").value;
+            let litros = (distancia * 1)/media;        
+            let reais = preco*litros;    
+            document.getElementById("litros").innerHTML = litros.toFixed(2);
+            document.getElementById("reais").innerHTML = reais.toFixed(2);
+        }
+    </script>
+</body>
+</html>
